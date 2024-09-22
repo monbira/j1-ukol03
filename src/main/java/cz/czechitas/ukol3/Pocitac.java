@@ -32,12 +32,19 @@ public class Pocitac {
         this.pevnyDisk = pevnyDisk;
     }
 
-    public void jeZapnuty() {
-
+    public boolean jeZapnuty() {
+        return jeZapnuty;
     }
 
     public void zapniSe () {
-
+        if (cpu != null && ram != null && pevnyDisk != null) {
+            System.out.println("Počítač je zapnutý.");
+        } else {
+            System.err.println("Počítač nemá všechny komponenty.");
+        }
+        if (jeZapnuty) {
+            System.err.println("Počítač je už zapnutý.");
+        }
     }
 
     public void vypniSe () {
