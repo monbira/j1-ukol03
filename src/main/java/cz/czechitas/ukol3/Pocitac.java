@@ -48,7 +48,9 @@ public class Pocitac {
     }
 
     public void vypniSe () {
-
+        if (!jeZapnuty) {
+            System.out.println("Počítač je vypnutý.");
+        }
     }
 
     @Override
