@@ -27,6 +27,7 @@ public class HlavniProgram {
         moniccinPocitac.setRam(operacniPamet);
         moniccinPocitac.setPevnyDisk(ssd);
         moniccinPocitac.zapniSe();
+        System.out.println(moniccinPocitac.toString());
         moniccinPocitac.vypniSe();
     }
 

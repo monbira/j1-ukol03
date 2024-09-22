@@ -61,10 +61,9 @@ public class Pocitac {
     @Override
     public String toString() {
         if (jeZapnuty) {
-            return "Počítač je zapnutý" + ", cpu: " + cpu + ", ram: " + ram +
-                    ", pevný disk:" + pevnyDisk + ".";
+            return "Počítač je zapnutý." + cpu + ram + pevnyDisk;
+        } else {
+            return "Počítač je vypnutý." + cpu + ram + pevnyDisk;
         }
-        return "Počítač je vypnutý" + ", cpu: " + cpu + ", ram: " + ram +
-                ", pevný disk:" + pevnyDisk + ".";
     }
 }
