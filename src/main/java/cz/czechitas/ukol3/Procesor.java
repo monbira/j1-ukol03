@@ -22,6 +22,6 @@ public class Procesor {
 
     @Override
     public String toString() {
-        return "Procesor: " + vyrobce + " " + rychlost + " Hz.";
+        return "Výrobce procesoru je " + vyrobce + ", rychlost procesoru je " + rychlost + " Hz.";
     }
 }
