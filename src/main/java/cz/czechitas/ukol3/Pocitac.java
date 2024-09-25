@@ -45,16 +45,44 @@ public class Pocitac {
         if (jeZapnuty) {
             System.err.println("Počítač je už zapnutý.");
         } else {
-            System.out.println("Počítač je zapnutý.");
             jeZapnuty = true;
+            System.out.println("Počítač je zapnutý.");
         }
 
     }
 
     public void vypniSe () {
         if (jeZapnuty) {
-            System.out.println("Počítač je vypnutý.");
             jeZapnuty = false;
+            System.out.println("Počítač je vypnutý.");
+        }
+    }
+
+    public void vytvorSouborOVelikosti (long velikost) {
+
+        long noveVyuziteMisto = velikost + pevnyDisk.getVyuziteMisto();
+
+        if (!jeZapnuty) {
+            System.err.println("Počítač je vypnutý, nelze vkládat soubory na disk.");
+        } else if (noveVyuziteMisto <= pevnyDisk.getKapacita()) {
+            pevnyDisk.setVyuziteMisto(noveVyuziteMisto);
+            System.out.println("Počítač má nové využité místo: " + noveVyuziteMisto + ".");
+        } else {
+            System.err.println("Soubor nelze vložit, došla kapacita.");
+        }
+    }
+
+    public void vymazSouborOVelikosti (long velikost) {
+
+        long noveVyuziteMisto = pevnyDisk.getVyuziteMisto() - velikost;
+
+        if (!jeZapnuty) {
+            System.err.println("Počítač je vypnutý, nelze mazat soubory z disku.");
+        } else if (noveVyuziteMisto >= 0) {
+            pevnyDisk.setVyuziteMisto(noveVyuziteMisto);
+            System.out.println("Počítač má nové využité místo: " + noveVyuziteMisto + ".");
+        } else {
+            System.err.println("Soubor nelze smazat, převyšuje kapacitu.");
         }
     }
 
