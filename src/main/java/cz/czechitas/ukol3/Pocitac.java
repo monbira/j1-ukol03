@@ -6,6 +6,7 @@ public class Pocitac {
     private Procesor cpu;
     private Pamet ram;
     private Disk pevnyDisk;
+    private Disk druhyDisk;
 
 
     public Procesor getCpu() {
@@ -30,6 +31,14 @@ public class Pocitac {
 
     public void setPevnyDisk(Disk pevnyDisk) {
         this.pevnyDisk = pevnyDisk;
+    }
+
+    public Disk getDruhyDisk() {
+        return druhyDisk;
+    }
+
+    public void setDruhyDisk(Disk druhyDisk) {
+        this.druhyDisk = druhyDisk;
     }
 
     public boolean jeZapnuty() {
@@ -61,12 +70,16 @@ public class Pocitac {
     public void vytvorSouborOVelikosti (long velikost) {
 
         long noveVyuziteMisto = velikost + pevnyDisk.getVyuziteMisto();
+        long mistoNaDruhemDisku = velikost + druhyDisk.getVyuziteMisto();
 
         if (!jeZapnuty) {
             System.err.println("Počítač je vypnutý, nelze vkládat soubory na disk.");
         } else if (noveVyuziteMisto <= pevnyDisk.getKapacita()) {
             pevnyDisk.setVyuziteMisto(noveVyuziteMisto);
             System.out.println("Počítač má nové využité místo: " + noveVyuziteMisto + ".");
+        } else if (noveVyuziteMisto > pevnyDisk.getKapacita() && mistoNaDruhemDisku <= druhyDisk.getKapacita()) {
+            druhyDisk.setVyuziteMisto(mistoNaDruhemDisku);
+            System.out.println("Počítač použil k uložení drhý disk a má nové využité místo: " + mistoNaDruhemDisku + ".");
         } else {
             System.err.println("Soubor nelze vložit, došla kapacita.");
         }

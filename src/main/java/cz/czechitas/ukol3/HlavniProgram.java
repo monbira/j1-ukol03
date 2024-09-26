@@ -18,6 +18,10 @@ public class HlavniProgram {
         ssd.setKapacita(245_110_000_000L);
         ssd.setVyuziteMisto(68_400_000_000L);
 
+        Disk ssd2 = new Disk();
+        ssd2.setKapacita(245_110_000_000L);
+        ssd2.setVyuziteMisto(0L);
+
         System.out.println(appleM1.toString());
         System.out.println(operacniPamet.toString());
         System.out.println(ssd.toString());
@@ -26,8 +30,9 @@ public class HlavniProgram {
         moniccinPocitac.setCpu(appleM1);
         moniccinPocitac.setRam(operacniPamet);
         moniccinPocitac.setPevnyDisk(ssd);
+        moniccinPocitac.setDruhyDisk(ssd2);
         moniccinPocitac.zapniSe();
-        moniccinPocitac.vymazSouborOVelikosti(30000000L);
+        moniccinPocitac.vytvorSouborOVelikosti(245_110_000_000L);
         System.out.println(moniccinPocitac.toString());
         moniccinPocitac.vypniSe();
     }
